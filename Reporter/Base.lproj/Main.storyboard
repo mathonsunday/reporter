@@ -28,6 +28,10 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration" label="Questions">
+                            <accessibilityTraits key="traits" none="YES"/>
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="183-Ph-AyE"/>

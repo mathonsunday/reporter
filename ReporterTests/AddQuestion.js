@@ -1,0 +1,1 @@
+UIATarget.localTarget().frontMostApp().mainWindow().navigationBar().buttons()["Add"].tap();
