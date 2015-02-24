@@ -11,11 +11,9 @@ import CoreData
 
 class ViewController: UIViewController, UITableViewDataSource {
     
-    // Retreive the managedObjectContext from AppDelegate
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
-    
+
     @IBOutlet weak var tableView: UITableView!
-        var questions = [NSManagedObject]()
+    var questions = [NSManagedObject]()
     
     @IBAction func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "New question",
@@ -47,12 +45,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func saveText(text: String) {
-        let question = NSEntityDescription.insertNewObjectForEntityForName("Question", inManagedObjectContext: self.managedObjectContext!) as Question
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as AppDelegate
         
-        question.text = text;
+        let managedContext = appDelegate.managedObjectContext!
+        
+        let entity =  NSEntityDescription.entityForName("Question",
+            inManagedObjectContext:
+            managedContext)
+        
+        let question = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext:managedContext)
+        
+        question.setValue(text, forKey: "text")
         
         var error: NSError?
-        if !(managedObjectContext?.save(&error) != nil) {
+        if !managedContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
         }
         questions.append(question)
@@ -61,8 +69,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\"The Questions\""
-        tableView.registerClass(UITableViewCell.self,
-            forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(UITableViewCell.self,
+            forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -98,7 +106,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         indexPath: NSIndexPath) -> UITableViewCell {
             
             let cell =
-            tableView.dequeueReusableCellWithIdentifier("Cell")
+            tableView.dequeueReusableCellWithIdentifier("cell")
                 as UITableViewCell
             
             let question = questions[indexPath.row]
