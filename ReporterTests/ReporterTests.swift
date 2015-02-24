@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+//import Reporter
 
 class ReporterTests: XCTestCase {
     
@@ -21,9 +22,23 @@ class ReporterTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    // we can't do much  without a view on our root View Controller
+    func testViewDidLoad()
+    {
+        let v = ViewController()
+        XCTAssertNotNil(v.view, "View Did Not load")
+    }
+    
+    func popUpAppearsWhenUserClicksAdd() {
+        
+    }
+    
+    func questionThatHasBeenAddedAppearsInList() {
+        
+    }
+    
+    func popUpClosesWhenUserClicksCancel() {
+        
     }
     
     func testPerformanceExample() {
