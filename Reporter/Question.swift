@@ -13,5 +13,4 @@ class Question: NSManagedObject {
 
     @NSManaged var text: String
     @NSManaged var answers: NSSet
-
 }

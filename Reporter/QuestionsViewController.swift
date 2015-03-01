@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  QuestionsViewController.swift
 //  Reporter
 //
 //  Created by Veronica Ray on 2/20/15.
@@ -9,11 +9,16 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource {
+class QuestionsViewController: UIViewController, UITableViewDataSource {
     
-
+    // TODO
+    // Swipe to delete questions
+    // http://jamesonquave.com/blog/core-data-in-swift-tutorial-part-3/
+    
+    
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
+    let kCellIdentifier: String = "questionCell"
     
     @IBAction func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "New question",
@@ -105,9 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             
-            let cell =
-            tableView.dequeueReusableCellWithIdentifier("cell")
-                as UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
             
             let question = questions[indexPath.row]
             cell.textLabel!.text = question.valueForKey("text") as String?
