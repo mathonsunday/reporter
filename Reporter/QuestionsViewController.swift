@@ -118,6 +118,19 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
             return cell
     }
     
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "answerQuestion" {
+//            let vc: AnswerQuestionViewController =  AnswerQuestionViewController()
+//        }
+//        AnswerQuestionViewController.
+        var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
+        var questionIndex = tableView!.indexPathForSelectedRow()!.row
+        var selectedQuestion = self.questions[questionIndex]
+        detailsViewController.question = selectedQuestion as? Question
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

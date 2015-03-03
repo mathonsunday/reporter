@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="St2-VA-e76" kind="push" id="pGD-PX-cCK"/>
+                                            <segue destination="St2-VA-e76" kind="push" identifier="answerQuestion" id="pGD-PX-cCK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -98,10 +98,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Cu-OE-zsN"/>
+                    <navigationItem key="navigationItem" id="6Cu-OE-zsN">
+                        <barButtonItem key="rightBarButtonItem" id="axO-2S-92h">
+                            <connections>
+                                <action selector="addAnswer:" destination="St2-VA-e76" id="5xC-J4-Whf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="label" destination="Jex-M0-tiV" id="rnq-lX-t9F"/>
+                        <outlet property="questionName" destination="8Ex-t6-Lxi" id="Mfl-Jf-rEf"/>
                         <outlet property="slider" destination="eoq-b9-baZ" id="TRb-hg-Aks"/>
+                        <outlet property="sliderValue" destination="Jex-M0-tiV" id="Olm-pl-jP7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZj-hZ-s2u" userLabel="First Responder" sceneMemberID="firstResponder"/>

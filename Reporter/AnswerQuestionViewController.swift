@@ -7,30 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class AnswerQuestionViewController: UIViewController {
-    
-    // TODO
-    // Set name of the question
-    // Save button
-    
-    
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var questionValue: UILabel!
-    @IBAction func sliderValueChanged(sender: UISlider) {
-        var currentValue = Int(sender.value)
-        
-        label.text = "\(currentValue)"
-    }
-    
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    // TODO
+    // Save button
+    
+    
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var sliderValue: UILabel!
+    @IBOutlet weak var questionName: UILabel!
+    
+    
+    var question: Question?
+    var answers = [NSManagedObject]()
+    
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        var currentValue = Int(sender.value)
+        
+        sliderValue.text = "\(currentValue)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionName.text = question?.text
     }
     
     override func didReceiveMemoryWarning() {
