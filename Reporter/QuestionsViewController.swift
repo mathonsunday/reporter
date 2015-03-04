@@ -121,10 +121,6 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "answerQuestion" {
-//            let vc: AnswerQuestionViewController =  AnswerQuestionViewController()
-//        }
-//        AnswerQuestionViewController.
         var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
         var selectedQuestion = self.questions[questionIndex]
