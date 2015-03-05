@@ -10,11 +10,6 @@ import UIKit
 import CoreData
 
 class AnswerQuestionViewController: UIViewController {
-
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     // TODO
     // Save button
     
@@ -22,16 +17,44 @@ class AnswerQuestionViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var questionName: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    
+    @IBAction func addAnswer(sender: AnyObject) {
+                self.saveValue(currentValue)
+    }
     
     var question: Question?
     var answers = [NSManagedObject]()
-    
+    var currentValue: Int
+ = 0    
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        var currentValue = Int(sender.value)
+        currentValue = Int(sender.value)
         
         sliderValue.text = "\(currentValue)"
+    }
+    
+    func saveValue(value: NSNumber) {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext!
+        
+        let entity =  NSEntityDescription.entityForName("Answer",
+            inManagedObjectContext:
+            managedContext)
+        
+        let answer = NSManagedObject(entity: entity!,
+            insertIntoManagedObjectContext:managedContext)
+        
+        answer.setValue(value, forKey: "value")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        saveButton.enabled = false
     }
     
     override func viewDidLoad() {

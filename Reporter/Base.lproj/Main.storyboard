@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4jd-ex-7L0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4jd-ex-7L0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -9,11 +9,11 @@
             <objects>
                 <viewController storyboardIdentifier="QuestionsViewController" id="vXZ-lx-hvc" customClass="QuestionsViewController" customModule="Reporter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="wZ2-SA-oSw"/>
+                        <viewControllerLayoutGuide type="bottom" id="oK2-d4-pEl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="183-Ph-AyE">
@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="St2-VA-e76" kind="push" identifier="answerQuestion" id="pGD-PX-cCK"/>
+                                            <segue destination="St2-VA-e76" kind="show" identifier="answerQuestion" id="pGD-PX-cCK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -63,28 +63,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="363.51999999999998"/>
+            <point key="canvasLocation" x="1156.5" y="383.99999999999989"/>
         </scene>
         <!--Answer Question View Controller-->
         <scene sceneID="gkv-dP-e1M">
             <objects>
                 <viewController storyboardIdentifier="AnswerQuestionViewController" id="St2-VA-e76" customClass="AnswerQuestionViewController" customModule="Reporter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OqE-06-ieE"/>
-                        <viewControllerLayoutGuide type="bottom" id="bYO-Sw-gqY"/>
+                        <viewControllerLayoutGuide type="top" id="6sK-Nk-9O0"/>
+                        <viewControllerLayoutGuide type="bottom" id="29U-B0-4va"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uSf-sB-e7z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-b9-baZ">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="eoq-b9-baZ">
                                 <rect key="frame" x="14" y="149" width="118" height="31"/>
                                 <connections>
                                     <action selector="sliderValueChanged:" destination="St2-VA-e76" eventType="valueChanged" id="WCv-Og-t5g"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ex-t6-Lxi">
-                                <rect key="frame" x="16" y="109" width="114" height="21"/>
+                                <rect key="frame" x="16" y="109" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,16 +98,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Cu-OE-zsN"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="6Cu-OE-zsN">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="j55-yO-ebi">
+                            <connections>
+                                <action selector="addAnswer:" destination="St2-VA-e76" id="HNw-gP-NU2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="questionName" destination="8Ex-t6-Lxi" id="Mfl-Jf-rEf"/>
+                        <outlet property="saveButton" destination="j55-yO-ebi" id="F9z-Zb-JLA"/>
                         <outlet property="slider" destination="eoq-b9-baZ" id="TRb-hg-Aks"/>
                         <outlet property="sliderValue" destination="Jex-M0-tiV" id="Olm-pl-jP7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZj-hZ-s2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="359"/>
+            <point key="canvasLocation" x="2116" y="379"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HSb-9a-bEI">
@@ -125,12 +134,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uaN-q1-RAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195.19999999999999" y="359.25999999999999"/>
+            <point key="canvasLocation" x="366" y="379.49999999999989"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
