@@ -11,11 +11,6 @@ import CoreData
 
 class QuestionsViewController: UIViewController, UITableViewDataSource {
     
-    // TODO
-    // Swipe to delete questions
-    // http://jamesonquave.com/blog/core-data-in-swift-tutorial-part-3/
-    
-    
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
     let kCellIdentifier: String = "questionCell"
@@ -118,7 +113,29 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
             return cell
     }
     
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+          let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        if(editingStyle == .Delete ) {
+            let questionToDelete = questions[indexPath.row]
+            managedContext?.deleteObject(questionToDelete)
+            self.fetchLog()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    func fetchLog() {
+    let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Question")
+        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let fetchResults = managedContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+            questions = fetchResults
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
