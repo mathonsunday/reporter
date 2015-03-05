@@ -10,10 +10,6 @@ import UIKit
 import CoreData
 
 class AnswerQuestionViewController: UIViewController {
-    // TODO
-    // Save button
-    
-    
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var questionName: UILabel!
