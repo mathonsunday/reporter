@@ -23,7 +23,7 @@ class AnswerQuestionViewController: UIViewController {
     var question: Question?
     var answers = [NSManagedObject]()
     var currentValue: Int
- = 0    
+ = 0
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         currentValue = Int(sender.value)

@@ -118,7 +118,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-          let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         if(editingStyle == .Delete ) {
             let questionToDelete = questions[indexPath.row]
             managedContext?.deleteObject(questionToDelete)
@@ -128,7 +128,7 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
     }
     
     func fetchLog() {
-    let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Question")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
