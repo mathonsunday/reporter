@@ -122,12 +122,12 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
         if(editingStyle == .Delete ) {
             let questionToDelete = questions[indexPath.row]
             managedContext?.deleteObject(questionToDelete)
-            self.fetchLog()
+            self.fetchQuestions()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
     }
     
-    func fetchLog() {
+    func fetchQuestions() {
         let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Question")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
