@@ -51,6 +51,7 @@ class AnswerQuestionViewController: UIViewController {
             println("Could not save \(error), \(error?.userInfo)")
         }
         saveButton.enabled = false
+        slider.enabled = false
     }
     
     override func viewDidLoad() {
