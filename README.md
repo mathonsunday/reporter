@@ -1,8 +1,6 @@
 # reporter
 
 TODO
-* Make the initial view be a Tab View so the user can select whether they want to see the Questions or the Answers
-  * Don’t remove either tab when there is not yet data for a category 
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Read and follow the iOS Human Interface Guidelines
   * [Take advantage of the whole screen](http://imgur.com/Nt7wHsr,MmMBJ8D#1)
