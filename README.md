@@ -3,6 +3,7 @@
 TODO
 * Sort questions alphabetically
 * Show all answers to a question (most recent answers first) when a user selects a question
+  * Include value and timestamp
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Read and follow the iOS Human Interface Guidelines
   * [Take advantage of the whole screen](http://imgur.com/Nt7wHsr,MmMBJ8D#1)
