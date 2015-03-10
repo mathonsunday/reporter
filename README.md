@@ -16,7 +16,7 @@ TODO
   * Take care to be accurate when describing dates
 * Follow [SlideShare Swift Style Guide](https://github.com/SlideShareInc/swift-style-guide) where applicable. Also read the [GitHub Swift Style Guide](https://github.com/github/swift-style-guide).
 * [Read up on design patterns in Swift](http://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1)
-* [Use Swift extensions instead of MARKs to organize code](http://www.codingexplorer.com/swift-extensions/)
+* [Use Swift extensions instead of // MARK: to organize code](http://www.codingexplorer.com/swift-extensions/)
 
 FURTHER ENHANCEMENTS
 * [Local notifications to remind user to answer questions for the day](http://jamesonquave.com/blog/local-notifications-in-ios-8-with-swift-part-1/)
