@@ -3,13 +3,9 @@
 
 target 'Reporter' do
 
- pod 'PNChart'
-
 end
 
 target 'ReporterTests' do
     
-    pod 'PNChart'
-
 end
 
