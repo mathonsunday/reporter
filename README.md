@@ -11,7 +11,7 @@ TODO
   * When users have more questions than fit on the screen they should be able to scroll down and focus the screen 
   * Make it obvious how to use the app when it is opened initially (like [this](http://imgur.com/DLy4OZw))
   * Provide a launch file or image 
-  * When the app restarts, restore its state so users can continue where they left off (see [Preserving Your App’s Visual Appearance Across Launches](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html#//apple_ref/doc/uid/TP40007072-CH5-SW2))
+  * [When the app restarts, restore its state so users can continue where they left off](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/StrategiesforImplementingYourApp/StrategiesforImplementingYourApp.html#//apple_ref/doc/uid/TP40007072-CH5-SW2)
   * Use Adaptive Layout to make app look good on all devices and in both orientations 
   * Take care to be accurate when describing dates
 * Follow [SlideShare Swift Style Guide](https://github.com/SlideShareInc/swift-style-guide) where applicable. Also read the [GitHub Swift Style Guide](https://github.com/github/swift-style-guide).
