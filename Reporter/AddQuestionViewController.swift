@@ -22,7 +22,6 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
         
         let saveAction = UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
-                
                 let textField = alert.textFields![0] as UITextField
                 self.saveText(textField.text)
                 self.tableView.reloadData()
@@ -34,6 +33,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
         
         alert.addTextFieldWithConfigurationHandler {
             (textField: UITextField!) -> Void in
+            textField.placeholder = "How much pain is in your left wrist?"
         }
         
         alert.addAction(saveAction)
