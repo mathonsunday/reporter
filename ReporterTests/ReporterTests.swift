@@ -25,7 +25,7 @@ class ReporterTests: XCTestCase {
     // we can't do much  without a view on our root View Controller
     func testViewDidLoad()
     {
-        let v = QuestionsViewController()
+        let v = AddQuestionViewController()
         XCTAssertNotNil(v.view, "View Did Not load")
     }
     

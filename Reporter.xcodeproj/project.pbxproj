@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		3B403DEA1A9835B6007461BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DE91A9835B6007461BF /* AppDelegate.swift */; };
-		3B403DEF1A9835B6007461BF /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* QuestionsViewController.swift */; };
+		3B403DEF1A9835B6007461BF /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */; };
 		3B403DF21A9835B6007461BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF01A9835B6007461BF /* Main.storyboard */; };
 		3B403DF41A9835B6007461BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF31A9835B6007461BF /* Images.xcassets */; };
 		3B403DF71A9835B6007461BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF51A9835B6007461BF /* LaunchScreen.xib */; };
 		3B403E031A9835B6007461BF /* ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E021A9835B6007461BF /* ReporterTests.swift */; };
-		3B403E2F1A995AF8007461BF /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E2E1A995AF8007461BF /* Answer.swift */; };
-		3B403E311A995B0A007461BF /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E301A995B0A007461BF /* Question.swift */; };
-		3B403E381A995FD1007461BF /* Reporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E361A995FD1007461BF /* Reporter.xcdatamodeld */; };
 		3B403E391A998F6E007461BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DE91A9835B6007461BF /* AppDelegate.swift */; };
-		3B403E3A1A99905C007461BF /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* QuestionsViewController.swift */; };
+		3B403E3A1A99905C007461BF /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */; };
+		3B6376411AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */; };
+		3B6376421AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */; };
 		3B791EDF1AA2370700BB5938 /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */; };
 		3B791EE11AA2400400BB5938 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EE01AA2400400BB5938 /* AnswersViewController.swift */; };
 		3B7B16061AA298CF00B1B9EB /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */; };
 		3B7B16071AA298D200B1B9EB /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EE01AA2400400BB5938 /* AnswersViewController.swift */; };
-		3B7B16081AA2992500B1B9EB /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E301A995B0A007461BF /* Question.swift */; };
-		3B7B16091AA2992700B1B9EB /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E2E1A995AF8007461BF /* Answer.swift */; };
+		3BA1FA571AAE2CD300BD818B /* Reporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA551AAE2CD300BD818B /* Reporter.xcdatamodeld */; };
+		3BA1FA5C1AAE329900BD818B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5B1AAE329900BD818B /* Question.swift */; };
+		3BA1FA5D1AAE329900BD818B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5B1AAE329900BD818B /* Question.swift */; };
+		3BA1FA5F1AAE329A00BD818B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5E1AAE329A00BD818B /* Answer.swift */; };
+		3BA1FA601AAE329A00BD818B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5E1AAE329A00BD818B /* Answer.swift */; };
 		76C30F5247995673BC947B98 /* libPods-Reporter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB78AE81850455FAB0E7E6E /* libPods-Reporter.a */; };
 		8A5D13AD6D87145A0BB97D79 /* libPods-ReporterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0CD8F4644E7580F7A6D12A /* libPods-ReporterTests.a */; };
 /* End PBXBuildFile section */
@@ -43,19 +45,20 @@
 		3B403DE41A9835B6007461BF /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403DE81A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B403DE91A9835B6007461BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B403DEE1A9835B6007461BF /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
 		3B403DF11A9835B6007461BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B403DF31A9835B6007461BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3B403DF61A9835B6007461BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3B403DFC1A9835B6007461BF /* ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403E011A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B403E021A9835B6007461BF /* ReporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterTests.swift; sourceTree = "<group>"; };
-		3B403E2E1A995AF8007461BF /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
-		3B403E301A995B0A007461BF /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		3B403E371A995FD1007461BF /* Reporter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reporter.xcdatamodel; sourceTree = "<group>"; };
 		3B6376391AACCE2B00A9013F /* Reporter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Reporter-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EE01AA2400400BB5938 /* AnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
+		3BA1FA561AAE2CD300BD818B /* Reporter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reporter.xcdatamodel; sourceTree = "<group>"; };
+		3BA1FA5B1AAE329900BD818B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		3BA1FA5E1AAE329A00BD818B /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		68D068DFDCEA67E49C0A90EB /* Pods-Reporter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reporter/Pods-Reporter.debug.xcconfig"; sourceTree = "<group>"; };
 		6C0CD8F4644E7580F7A6D12A /* libPods-ReporterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReporterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86B8FB74091455EE663FC89D /* Pods-ReporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReporterTests/Pods-ReporterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,12 +110,13 @@
 		3B403DE61A9835B6007461BF /* Reporter */ = {
 			isa = PBXGroup;
 			children = (
-				3B403E361A995FD1007461BF /* Reporter.xcdatamodeld */,
-				3B403E301A995B0A007461BF /* Question.swift */,
-				3B403E2E1A995AF8007461BF /* Answer.swift */,
+				3BA1FA551AAE2CD300BD818B /* Reporter.xcdatamodeld */,
+				3BA1FA5E1AAE329A00BD818B /* Answer.swift */,
+				3BA1FA5B1AAE329900BD818B /* Question.swift */,
 				3B403DE91A9835B6007461BF /* AppDelegate.swift */,
-				3B403DEE1A9835B6007461BF /* QuestionsViewController.swift */,
+				3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */,
 				3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */,
+				3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */,
 				3B791EE01AA2400400BB5938 /* AnswersViewController.swift */,
 				3B403DF01A9835B6007461BF /* Main.storyboard */,
 				3B403DF31A9835B6007461BF /* Images.xcassets */,
@@ -334,13 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B403E311A995B0A007461BF /* Question.swift in Sources */,
-				3B403E381A995FD1007461BF /* Reporter.xcdatamodeld in Sources */,
-				3B403DEF1A9835B6007461BF /* QuestionsViewController.swift in Sources */,
+				3BA1FA571AAE2CD300BD818B /* Reporter.xcdatamodeld in Sources */,
+				3B6376411AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */,
+				3B403DEF1A9835B6007461BF /* AddQuestionViewController.swift in Sources */,
 				3B403DEA1A9835B6007461BF /* AppDelegate.swift in Sources */,
-				3B403E2F1A995AF8007461BF /* Answer.swift in Sources */,
 				3B791EE11AA2400400BB5938 /* AnswersViewController.swift in Sources */,
+				3BA1FA5C1AAE329900BD818B /* Question.swift in Sources */,
 				3B791EDF1AA2370700BB5938 /* AnswerQuestionViewController.swift in Sources */,
+				3BA1FA5F1AAE329A00BD818B /* Answer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,12 +354,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B7B16061AA298CF00B1B9EB /* AnswerQuestionViewController.swift in Sources */,
-				3B403E3A1A99905C007461BF /* QuestionsViewController.swift in Sources */,
+				3B6376421AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */,
+				3B403E3A1A99905C007461BF /* AddQuestionViewController.swift in Sources */,
 				3B403E391A998F6E007461BF /* AppDelegate.swift in Sources */,
-				3B7B16091AA2992700B1B9EB /* Answer.swift in Sources */,
-				3B7B16081AA2992500B1B9EB /* Question.swift in Sources */,
 				3B403E031A9835B6007461BF /* ReporterTests.swift in Sources */,
+				3BA1FA5D1AAE329900BD818B /* Question.swift in Sources */,
 				3B7B16071AA298D200B1B9EB /* AnswersViewController.swift in Sources */,
+				3BA1FA601AAE329A00BD818B /* Answer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,12 +570,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3B403E361A995FD1007461BF /* Reporter.xcdatamodeld */ = {
+		3BA1FA551AAE2CD300BD818B /* Reporter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3B403E371A995FD1007461BF /* Reporter.xcdatamodel */,
+				3BA1FA561AAE2CD300BD818B /* Reporter.xcdatamodel */,
 			);
-			currentVersion = 3B403E371A995FD1007461BF /* Reporter.xcdatamodel */;
+			currentVersion = 3BA1FA561AAE2CD300BD818B /* Reporter.xcdatamodel */;
 			path = Reporter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -1,74 +1,23 @@
 //
-//  QuestionsViewController.swift
-//  Reporter
+//  ChooseQuestionViewController.swift
+//  
 //
-//  Created by Veronica Ray on 2/20/15.
-//  Copyright (c) 2015 Veronica Ray. All rights reserved.
+//  Created by Veronica Ray on 3/8/15.
+//
 //
 
 import UIKit
 import CoreData
 
-class QuestionsViewController: UIViewController, UITableViewDataSource {
+class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
+    
     
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
     let kCellIdentifier: String = "questionCell"
-    
-    @IBAction func addQuestion(sender: AnyObject) {
-        var alert = UIAlertController(title: "New question",
-            message: "Add a new question",
-            preferredStyle: .Alert)
-        
-        let saveAction = UIAlertAction(title: "Save",
-            style: .Default) { (action: UIAlertAction!) -> Void in
-                
-                let textField = alert.textFields![0] as UITextField
-                self.saveText(textField.text)
-                self.tableView.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-            style: .Default) { (action: UIAlertAction!) -> Void in
-        }
-        
-        alert.addTextFieldWithConfigurationHandler {
-            (textField: UITextField!) -> Void in
-        }
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        presentViewController(alert,
-            animated: true,
-            completion: nil)
-    }
-    
-    func saveText(text: String) {
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let entity =  NSEntityDescription.entityForName("Question",
-            inManagedObjectContext:
-            managedContext)
-        
-        let question = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext:managedContext)
-        
-        question.setValue(text, forKey: "text")
-        
-        var error: NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
-        questions.append(question)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "\"The Questions\""
         self.tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "cell")
     }
@@ -138,17 +87,26 @@ class QuestionsViewController: UIViewController, UITableViewDataSource {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
+        var detailsViewController: AnswersViewController = segue.destinationViewController as AnswersViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
         var selectedQuestion = self.questions[questionIndex]
         detailsViewController.question = selectedQuestion as? Question
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-}
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
