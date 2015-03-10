@@ -11,7 +11,6 @@ import CoreData
 
 class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     
-    
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
     let kCellIdentifier: String = "questionCell"
@@ -42,36 +41,6 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView,
-        numberOfRowsInSection section: Int) -> Int {
-            return questions.count
-    }
-    
-    func tableView(tableView: UITableView,
-        cellForRowAtIndexPath
-        indexPath: NSIndexPath) -> UITableViewCell {
-            
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-            
-            let question = questions[indexPath.row]
-            cell.textLabel!.text = question.valueForKey("text") as String?
-            
-            return cell
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if(editingStyle == .Delete ) {
-            let questionToDelete = questions[indexPath.row]
-            managedObjectContext?.deleteObject(questionToDelete)
-            self.fetchQuestions()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        }
-    }
-    
     func fetchQuestions() {
         let fetchRequest = NSFetchRequest(entityName: "Question")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
@@ -81,6 +50,21 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+   // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+            return questions.count
+    }
+    
+    func tableView(tableView: UITableView,
+        cellForRowAtIndexPath
+        indexPath: NSIndexPath) -> UITableViewCell {
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+            let question = questions[indexPath.row]
+            cell.textLabel!.text = question.valueForKey("text") as String?
+            return cell
+    }
+        
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var detailsViewController: AnswersViewController = segue.destinationViewController as AnswersViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
@@ -92,16 +76,4 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
