@@ -45,6 +45,7 @@ class AnswerQuestionViewController: UIViewController {
             insertIntoManagedObjectContext:managedContext)
         
         answer.setValue(value, forKey: "value")
+        answer.setValue(self.question, forKey: "answerToQuestion")
         
         var error: NSError?
         if !managedContext.save(&error) {
