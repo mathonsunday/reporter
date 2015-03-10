@@ -14,20 +14,14 @@ class AnswerQuestionViewController: UIViewController {
     @IBOutlet weak var sliderValue: UILabel!
     @IBOutlet weak var questionName: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    
     @IBAction func addAnswer(sender: AnyObject) {
                 self.saveValue(currentValue)
     }
-    
     var question: Question?
     var answers = [NSManagedObject]()
-    var currentValue: Int
- = 0
-    
+    var currentValue: Int = 0
     @IBAction func sliderValueChanged(sender: UISlider) {
         currentValue = Int(sender.value)
-        
         sliderValue.text = "\(currentValue)"
     }
     
@@ -65,16 +59,4 @@ class AnswerQuestionViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    
 }
