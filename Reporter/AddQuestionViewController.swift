@@ -14,7 +14,6 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
     let kCellIdentifier: String = "questionCell"
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     @IBAction func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "Add A New Question",
@@ -46,17 +45,22 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     func saveText(text: String) {
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext!
+        
         let entity =  NSEntityDescription.entityForName("Question",
             inManagedObjectContext:
-            managedObjectContext!)
+            managedContext)
         
         let question = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext:managedObjectContext)
+            insertIntoManagedObjectContext:managedContext)
         
         question.setValue(text, forKey: "text")
         
         var error: NSError?
-        if managedObjectContext!.save(&error) {
+        if !managedContext.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
         }
         questions.append(question)
@@ -74,10 +78,11 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     func fetchQuestions() {
+        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Question")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+        if let fetchResults = managedContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
             questions = fetchResults
         }
     }
@@ -91,9 +96,12 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
+            
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+            
             let question = questions[indexPath.row]
             cell.textLabel!.text = question.valueForKey("text") as String?
+            
             return cell
     }
     
@@ -110,9 +118,10 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         if(editingStyle == .Delete ) {
             let questionToDelete = questions[indexPath.row]
-            managedObjectContext?.deleteObject(questionToDelete)
+            managedContext?.deleteObject(questionToDelete)
             self.fetchQuestions()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
