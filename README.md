@@ -1,6 +1,6 @@
 # reporter
 CURRENT MAJOR ISSUE
-In AnswersViewController.Swift I have a NSPredicate in fetchAnswers() that is supposed to return all the answers for the selected question. It is currently returning an empty set for each question I select even though I have answered some of those questions. I tried answering a question and then clicking to see the answers for the same question and I get an empty table. 
+* In AnswersViewController.Swift I have a NSPredicate in fetchAnswers() that is supposed to return all the answers for the selected question. It is currently returning an empty set for each question I select even though I have answered some of those questions. I tried answering a question and then clicking to see the answers for the same question and I get an empty table. 
 
 TODO
 * Show all answers to a question (most recent answers first) when a user selects a question
