@@ -5,7 +5,7 @@ TODO
   * [Include value and timestamp](http://www.raywenderlich.com/87975/dynamic-table-view-cell-height-ios-8-swift)
 * Display answer data over time using a charting library like PNChart
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
-* Read and follow the iOS Human Interface Guidelines
+* Follow the iOS Human Interface Guidelines
   * [Take advantage of the whole screen](http://imgur.com/Nt7wHsr,MmMBJ8D#1)
   * [A key color (such as yellow in Notes) highlights important state and subtly indicates interactivity](http://imgur.com/Nt7wHsr,MmMBJ8D) 
   * When users have more questions than fit on the screen they should be able to scroll down and focus the screen 
