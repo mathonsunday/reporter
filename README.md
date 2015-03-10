@@ -2,7 +2,7 @@
 
 TODO
 * Show all answers to a question (most recent answers first) when a user selects a question
-  * Include value and timestamp
+  * [Include value and timestamp](http://www.raywenderlich.com/87975/dynamic-table-view-cell-height-ios-8-swift)
 * Display answer data over time using a charting library like PNChart
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Read and follow the iOS Human Interface Guidelines
@@ -15,3 +15,10 @@ TODO
   * Use Adaptive Layout to make app look good on all devices and in both orientations 
   * Take care to be accurate when describing dates
 * Follow [SlideShare Swift Style Guide](https://github.com/SlideShareInc/swift-style-guide) where applicable. Also read the [GitHub Swift Style Guide](https://github.com/github/swift-style-guide).
+* [Read up on design patterns in Swift](http://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1)
+
+FURTHER ENHANCEMENTS
+* [Local notifications to remind user to answer questions for the day](http://jamesonquave.com/blog/local-notifications-in-ios-8-with-swift-part-1/)
+* [Search on the choose questions screen](http://www.raywenderlich.com/76519/add-table-view-search-swift)
+* [User accounts](http://www.raywenderlich.com/92667/securing-ios-data-keychain-touch-id-1password)
+* [iOS 8 visual effects](http://www.raywenderlich.com/84043/ios-8-visual-effects-tutorial)
