@@ -15,6 +15,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var questions = [NSManagedObject]()
     let kCellIdentifier: String = "questionCell"
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +25,14 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
+
         
         let fetchRequest = NSFetchRequest(entityName:"Question")
         
         var error: NSError?
         
         let fetchedResults =
-        managedContext.executeFetchRequest(fetchRequest,
+        managedObjectContext!.executeFetchRequest(fetchRequest,
             error: &error) as [NSManagedObject]?
         
         if let results = fetchedResults {
@@ -67,21 +64,19 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         if(editingStyle == .Delete ) {
             let questionToDelete = questions[indexPath.row]
-            managedContext?.deleteObject(questionToDelete)
+            managedObjectContext?.deleteObject(questionToDelete)
             self.fetchQuestions()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
     }
     
     func fetchQuestions() {
-        let managedContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
         let fetchRequest = NSFetchRequest(entityName: "Question")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
-        if let fetchResults = managedContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
             questions = fetchResults
         }
     }
