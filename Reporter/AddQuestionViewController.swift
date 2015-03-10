@@ -73,6 +73,16 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
         super.viewWillAppear(animated)
     }
     
+    func fetchQuestions() {
+        let fetchRequest = NSFetchRequest(entityName: "Question")
+        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
+            questions = fetchResults
+        }
+    }
+    
+    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             return questions.count
@@ -87,6 +97,14 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
             return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
+        var questionIndex = tableView!.indexPathForSelectedRow()!.row
+        var selectedQuestion = self.questions[questionIndex]
+        detailsViewController.question = selectedQuestion as? Question
+    }
+    
+     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -98,22 +116,6 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
             self.fetchQuestions()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
-    }
-    
-    func fetchQuestions() {
-        let fetchRequest = NSFetchRequest(entityName: "Question")
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
-            questions = fetchResults
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
-        var questionIndex = tableView!.indexPathForSelectedRow()!.row
-        var selectedQuestion = self.questions[questionIndex]
-        detailsViewController.question = selectedQuestion as? Question
     }
     
     override func didReceiveMemoryWarning() {
