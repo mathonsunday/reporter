@@ -16,8 +16,8 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     let kCellIdentifier: String = "questionCell"
     
     @IBAction func addQuestion(sender: AnyObject) {
-        var alert = UIAlertController(title: "New question",
-            message: "Add a new question",
+        var alert = UIAlertController(title: "Add A New Question",
+            message: nil,
             preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save",
