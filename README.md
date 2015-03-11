@@ -1,7 +1,7 @@
 # reporter
 
 TODO
-* BUG: When user deletes question from Add Questions screen and then clicks on View Answers a question is deleted from the list but it is not the same one.
+* BUG: When user deletes question from Add Questions screen and then clicks on View Answers a question is removed from the list but it is not the same one.
 * Order answers by most recent first 
 * Show timestamp when displaying answers
 * Display answer data over time using a charting library like PNChart
