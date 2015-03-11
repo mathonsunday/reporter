@@ -1,6 +1,7 @@
 # reporter
 
 TODO
+* Order answers by most recent first 
 * Show timestamp when displaying answers
 * Display answer data over time using a charting library like PNChart
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
