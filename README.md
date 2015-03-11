@@ -1,8 +1,7 @@
 # reporter
 
 TODO
-* Show all answers to a question (most recent answers first) when a user selects a question
-  * [Include value and timestamp](http://www.raywenderlich.com/87975/dynamic-table-view-cell-height-ios-8-swift)
+* Show timestamp when displaying answers
 * Display answer data over time using a charting library like PNChart
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Follow the iOS Human Interface Guidelines
