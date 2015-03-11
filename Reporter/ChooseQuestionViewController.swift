@@ -12,7 +12,7 @@ import CoreData
 class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var questions = [NSManagedObject]()
+    var questions = [Question]()
     let kCellIdentifier: String = "questionCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
@@ -25,21 +25,6 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
-        
-        let fetchRequest = NSFetchRequest(entityName:"Question")
-        
-        var error: NSError?
-        
-        let fetchedResults =
-        managedObjectContext!.executeFetchRequest(fetchRequest,
-            error: &error) as [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            questions = results
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
-        }
     }
     
     func fetchQuestions() {
@@ -71,7 +56,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         var detailsViewController: AnswersViewController = segue.destinationViewController as AnswersViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
         var selectedQuestion = self.questions[questionIndex]
-        detailsViewController.question = selectedQuestion as? Question
+        detailsViewController.question = selectedQuestion
     }
 
     override func didReceiveMemoryWarning() {
