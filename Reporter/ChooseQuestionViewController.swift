@@ -20,6 +20,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "cell")
+          fetchQuestions()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -49,6 +50,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
             questions = fetchResults
         }
     }
+    
     
    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,

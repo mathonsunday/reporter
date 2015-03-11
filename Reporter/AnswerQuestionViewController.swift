@@ -52,7 +52,6 @@ class AnswerQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         questionName.text = question?.text
-        println(question?.text)
     }
     
     override func didReceiveMemoryWarning() {

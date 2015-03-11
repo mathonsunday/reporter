@@ -12,9 +12,10 @@ import CoreData
 class AnswersViewController: UIViewController, UITableViewDataSource {
     
     var question: Question?
-    var answers = [Answer]()
+    var answers = [NSManagedObject]()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,12 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     
     func fetchAnswers() {
         let fetchRequest = NSFetchRequest(entityName: "Answer")
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
         let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
         fetchRequest.predicate = predicate
         let appDelegate =
