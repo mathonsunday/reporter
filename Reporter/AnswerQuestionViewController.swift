@@ -24,25 +24,21 @@ class AnswerQuestionViewController: UIViewController {
         currentValue = Int(sender.value)
         sliderValue.text = "\(currentValue)"
     }
+    var managedObjectContext : NSManagedObjectContext?
     
     func saveValue(value: NSNumber) {
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
         let entity =  NSEntityDescription.entityForName("Answer",
             inManagedObjectContext:
-            managedContext)
+            managedObjectContext!)
         
         let answer = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext:managedContext)
+            insertIntoManagedObjectContext:managedObjectContext)
         
         answer.setValue(value, forKey: "value")
         answer.setValue(self.question, forKey: "answerToQuestion")
         
         var error: NSError?
-        if !managedContext.save(&error) {
+        if !managedObjectContext!.save(&error) {
             println("Could not save \(error), \(error?.userInfo)")
         }
         saveButton.enabled = false

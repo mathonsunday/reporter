@@ -57,6 +57,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
         var selectedQuestion = self.questions[questionIndex]
         detailsViewController.question = selectedQuestion
+        detailsViewController.managedObjectContext = managedObjectContext
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,7 +15,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
     var answers = [NSManagedObject]()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    var managedObjectContext : NSManagedObjectContext?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
         fetchRequest.predicate = predicate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
-        let managedContext = appDelegate.managedObjectContext!
-        if let fetchResults = managedContext.executeFetchRequest(fetchRequest, error: nil) as? [Answer] {
+        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer] {
             answers = fetchResults
         }
     }

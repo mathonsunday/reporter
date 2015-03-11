@@ -104,7 +104,8 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
         var detailsViewController: AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
         var selectedQuestion = self.questions[questionIndex]
-        detailsViewController.question = selectedQuestion 
+        detailsViewController.question = selectedQuestion
+        detailsViewController.managedObjectContext = managedObjectContext
     }
     
      // MARK: UITableViewDelegate
