@@ -1,6 +1,7 @@
 # reporter
 
 TODO
+* Test app on physical device 
 * BUG: When user deletes question from Add Questions screen and then clicks on View Answers the original list with the deleted question is shown 
 * Order answers by most recent first 
 * Show timestamp when displaying answers
