@@ -4,6 +4,7 @@ TODO
 * BUG: When user deletes question from Add Questions screen and then clicks on View Answers the original list with the deleted question is shown 
 * Order answers by most recent first 
 * Show timestamp when displaying answers
+* [Write](http://natashatherobot.com/swift-unit-testing-tips-and-tricks/) [unit](http://natashatherobot.com/unit-testing-swift-dependency-injection/) [tests](http://iosunittesting.com/)
 * Display answer data over time using a charting library like PNChart
 * [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Follow the iOS Human Interface Guidelines
