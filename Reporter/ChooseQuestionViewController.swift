@@ -1,6 +1,6 @@
 //
 //  ChooseQuestionViewController.swift
-//  
+//
 //
 //  Created by Veronica Ray on 3/8/15.
 //
@@ -15,12 +15,12 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     var questions = [Question]()
     let kCellIdentifier: String = "questionCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "cell")
-          fetchQuestions()
+        fetchQuestions()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,7 +37,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
     }
     
     
-   // MARK: UITableViewDataSource
+    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             return questions.count
@@ -51,7 +51,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
             cell.textLabel!.text = question.valueForKey("text") as String?
             return cell
     }
-        
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var detailsViewController: AnswersViewController = segue.destinationViewController as AnswersViewController
         var questionIndex = tableView!.indexPathForSelectedRow()!.row
@@ -59,7 +59,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource {
         detailsViewController.question = selectedQuestion
         detailsViewController.managedObjectContext = managedObjectContext
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

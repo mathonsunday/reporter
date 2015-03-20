@@ -14,7 +14,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     var questions = [Question]()
     let kCellIdentifier: String = "questionCell"
-     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     @IBAction func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "Add A New Question",
@@ -108,7 +108,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource {
         detailsViewController.managedObjectContext = managedObjectContext
     }
     
-     // MARK: UITableViewDelegate
+    // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }

@@ -16,7 +16,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
     var managedObjectContext : NSManagedObjectContext?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self,
@@ -41,7 +41,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
         }
     }
     
-       // MARK: UITableViewDataSource
+    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             return answers.count
@@ -56,7 +56,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
             cell.textLabel!.text = value?.stringValue
             return cell
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

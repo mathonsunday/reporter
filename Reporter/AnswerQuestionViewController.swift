@@ -15,7 +15,7 @@ class AnswerQuestionViewController: UIViewController {
     @IBOutlet weak var questionName: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBAction func addAnswer(sender: AnyObject) {
-                self.saveValue(currentValue)
+        self.saveValue(currentValue)
     }
     var question: Question?
     var answers = [NSManagedObject]()
