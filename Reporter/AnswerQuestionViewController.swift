@@ -24,16 +24,11 @@ class AnswerQuestionViewController: UIViewController {
         currentValue = Int(sender.value)
         sliderValue.text = "\(currentValue)"
     }
-    var managedObjectContext : NSManagedObjectContext?
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     func saveValue(value: NSNumber) {
-        let entity =  NSEntityDescription.entityForName("Answer",
-            inManagedObjectContext:
-            managedObjectContext!)
-        
-        let answer = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext:managedObjectContext)
-        
+        let entityDescripition = NSEntityDescription.entityForName("Answer", inManagedObjectContext: managedObjectContext!)
+        let answer = Answer(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
         answer.setValue(value, forKey: "value")
         answer.setValue(self.question, forKey: "answerToQuestion")
         
@@ -47,7 +42,9 @@ class AnswerQuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if question != nil {
         questionName.text = question?.text
+        }
     }
     
     override func didReceiveMemoryWarning() {

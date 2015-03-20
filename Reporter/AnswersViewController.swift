@@ -9,19 +9,23 @@
 import UIKit
 import CoreData
 
-class AnswersViewController: UIViewController, UITableViewDataSource {
+class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
     
     var question: Question?
-    var answers = [NSManagedObject]()
+    var answers = [Answer]()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
-    var managedObjectContext : NSManagedObjectContext?
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "cell")
-        fetchAnswers()
+        fetchedResultController = getFetchedResultController()
+        fetchedResultController.delegate = self
+        fetchedResultController.performFetch(nil)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,33 +33,43 @@ class AnswersViewController: UIViewController, UITableViewDataSource {
         self.tableView.reloadData()
     }
     
-    
-    func fetchAnswers() {
-        let fetchRequest = NSFetchRequest(entityName: "Answer")
-        let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
-        fetchRequest.predicate = predicate
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Answer] {
-            answers = fetchResults
-        }
+    // MARK: UITableViewDataSource    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let numberOfSections = fetchedResultController.sections?.count
+        return numberOfSections!
     }
     
-    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            return answers.count
+            //            return questions.count
+            let numberOfRowsInSection = fetchedResultController.sections?[section].numberOfObjects
+            return numberOfRowsInSection!
     }
     
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-            let answer = answers[indexPath.row]
+            let answer = fetchedResultController.objectAtIndexPath(indexPath) as Answer
             let value  = answer.valueForKey("value") as NSNumber?
-            cell.textLabel!.text = value?.stringValue
+                        cell.textLabel!.text = value?.stringValue
             return cell
     }
+    
+    // MARK: NSFetchedResultsControllerDelegate
+    func getFetchedResultController() -> NSFetchedResultsController {
+        fetchedResultController = NSFetchedResultsController(fetchRequest: answerFetchRequest(), managedObjectContext: managedObjectContext!, sectionNameKeyPath: nil, cacheName: nil)
+        return fetchedResultController
+    }
+    
+    func answerFetchRequest() -> NSFetchRequest {
+        let fetchRequest = NSFetchRequest(entityName: "Answer")
+        let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
+        fetchRequest.predicate = predicate
+         fetchRequest.sortDescriptors = []
+        return fetchRequest
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
