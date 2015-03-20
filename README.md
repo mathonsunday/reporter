@@ -1,6 +1,7 @@
 # reporter
 
 TODO
+* BUG New Questions with the same name as an old qustion can be added
 * Test app on physical device 
 * Order answers by most recent first 
 * Show timestamp when displaying answers
