@@ -76,7 +76,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
     }
     
     // MARK: UITableViewDataSource
-   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let numberOfSections = fetchedResultController.sections?.count
         return numberOfSections!
     }
@@ -91,7 +91,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-let question = fetchedResultController.objectAtIndexPath(indexPath) as Question
+            let question = fetchedResultController.objectAtIndexPath(indexPath) as Question
             cell.textLabel!.text = question.valueForKey("text") as String?
             
             return cell
@@ -111,9 +111,9 @@ let question = fetchedResultController.objectAtIndexPath(indexPath) as Question
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-            let managedObject:NSManagedObject = fetchedResultController.objectAtIndexPath(indexPath) as NSManagedObject
-            managedObjectContext?.deleteObject(managedObject)
-            managedObjectContext?.save(nil)
+        let managedObject:NSManagedObject = fetchedResultController.objectAtIndexPath(indexPath) as NSManagedObject
+        managedObjectContext?.deleteObject(managedObject)
+        managedObjectContext?.save(nil)
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController!) {

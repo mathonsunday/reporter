@@ -33,7 +33,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
         self.tableView.reloadData()
     }
     
-    // MARK: UITableViewDataSource    
+    // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let numberOfSections = fetchedResultController.sections?.count
         return numberOfSections!
@@ -52,7 +52,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
             let answer = fetchedResultController.objectAtIndexPath(indexPath) as Answer
             let value  = answer.valueForKey("value") as NSNumber?
-                        cell.textLabel!.text = value?.stringValue
+            cell.textLabel!.text = value?.stringValue
             return cell
     }
     
@@ -66,7 +66,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
         let fetchRequest = NSFetchRequest(entityName: "Answer")
         let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
         fetchRequest.predicate = predicate
-         fetchRequest.sortDescriptors = []
+        fetchRequest.sortDescriptors = []
         return fetchRequest
     }
     

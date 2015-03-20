@@ -43,7 +43,7 @@ class AnswerQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if question != nil {
-        questionName.text = question?.text
+            questionName.text = question?.text
         }
     }
     
