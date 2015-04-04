@@ -7,7 +7,6 @@ TODO
 * Show timestamp when displaying answers
 * [Write](http://natashatherobot.com/swift-unit-testing-tips-and-tricks/) [unit](http://natashatherobot.com/unit-testing-swift-dependency-injection/) [tests](http://iosunittesting.com/)
 * Display answer data over time using a charting library like PNChart
-* [Use sample data to get more insight into app performance](https://www.ibm.com/developerworks/community/blogs/mobileblog/entry/testing_swift_apps_with_data_generators?lang=en) 
 * Follow the iOS Human Interface Guidelines
   * [Take advantage of the whole screen](http://imgur.com/Nt7wHsr,MmMBJ8D#1)
   * [A key color (such as yellow in Notes) highlights important state and subtly indicates interactivity](http://imgur.com/Nt7wHsr,MmMBJ8D) 
@@ -18,7 +17,6 @@ TODO
   * Use Adaptive Layout to make app look good on all devices and in both orientations 
   * Take care to be accurate when describing dates
 * Follow [SlideShare Swift Style Guide](https://github.com/SlideShareInc/swift-style-guide) where applicable. Also read the [GitHub Swift Style Guide](https://github.com/github/swift-style-guide).
-* [Read up on design patterns in Swift](http://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1)
 * [Use Swift extensions instead of // MARK: to organize code](http://www.codingexplorer.com/swift-extensions/)
 
 FURTHER ENHANCEMENTS
