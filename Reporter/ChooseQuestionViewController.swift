@@ -12,7 +12,6 @@ import CoreData
 class ChooseQuestionViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var questions = [Question]()
     let kCellIdentifier: String = "questionCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
@@ -30,16 +29,6 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource,  NS
         super.viewWillAppear(animated)
     }
     
-    func fetchQuestions() {
-        let fetchRequest = NSFetchRequest(entityName: "Question")
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
-            questions = fetchResults
-        }
-    }
-    
-    
     // MARK: UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let numberOfSections = fetchedResultController.sections?.count
@@ -48,7 +37,6 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource,  NS
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            //            return questions.count
             let numberOfRowsInSection = fetchedResultController.sections?[section].numberOfObjects
             return numberOfRowsInSection!
     }
