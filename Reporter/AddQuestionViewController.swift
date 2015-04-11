@@ -12,10 +12,10 @@ import CoreData
 class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
-    var questions = [Question]()
     let kCellIdentifier: String = "questionCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
+    var questions = [Question]()
     
     @IBAction func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "Add A New Question",
@@ -30,7 +30,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
        let saveAction = UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
                 let textField = alert.textFields![0] as UITextField
-                if (!self.questions.filter { (question) in question.text == textField.text}.isEmpty) {
+                if (self.questions.filter { (question) in question.text == textField.text}.isEmpty) {
                 self.saveText(textField.text)
                 self.tableView.reloadData()
                 } else {
@@ -60,10 +60,6 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
             completion: nil)
     }
     
-    func createRetryModal() {
-        
-    }
-    
     func saveText(text: String) {
         let entityDescripition = NSEntityDescription.entityForName("Question", inManagedObjectContext: managedObjectContext!)
         let question = Question(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
@@ -78,19 +74,11 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         fetchedResultController = getFetchedResultController()
         fetchedResultController.delegate = self
         fetchedResultController.performFetch(nil)
+        initializeQuestions()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-    }
-    
-    func fetchQuestions() {
-        let fetchRequest = NSFetchRequest(entityName: "Question")
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Question] {
-            questions = fetchResults
-        }
     }
     
     // MARK: UITableViewDataSource
@@ -136,6 +124,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
     
     func controllerDidChangeContent(controller: NSFetchedResultsController!) {
         tableView.reloadData()
+        initializeQuestions()
     }
     
     // MARK: NSFetchedResultsControllerDelegate
@@ -149,6 +138,12 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
+    }
+    
+    func initializeQuestions() {
+        for question in self.fetchedResultController.fetchedObjects! {
+            self.questions.append(question as Question)
+        }
     }
     
     override func didReceiveMemoryWarning() {
