@@ -22,15 +22,29 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
             message: nil,
             preferredStyle: .Alert)
         
-        let saveAction = UIAlertAction(title: "Save",
-            style: .Default) { (action: UIAlertAction!) -> Void in
-                let textField = alert.textFields![0] as UITextField
-                self.saveText(textField.text)
-                self.tableView.reloadData()
-        }
-        
         let cancelAction = UIAlertAction(title: "Cancel",
             style: .Default) { (action: UIAlertAction!) -> Void in
+        }
+        
+        
+       let saveAction = UIAlertAction(title: "Save",
+            style: .Default) { (action: UIAlertAction!) -> Void in
+                let textField = alert.textFields![0] as UITextField
+                if (!self.questions.filter { (question) in question.text == textField.text}.isEmpty) {
+                self.saveText(textField.text)
+                self.tableView.reloadData()
+                } else {
+                    var alertOnError = UIAlertController(title: "Question Already Exists",
+                        message: nil,
+                        preferredStyle: .Alert)
+                    let okAction = UIAlertAction(title: "OK",
+                        style: .Default) { (action: UIAlertAction!) -> Void in
+                    }
+                    alertOnError.addAction(okAction)
+                    self.presentViewController(alertOnError,
+                        animated: true,
+                        completion: nil)
+                }
         }
         
         alert.addTextFieldWithConfigurationHandler {
@@ -44,6 +58,10 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         presentViewController(alert,
             animated: true,
             completion: nil)
+    }
+    
+    func createRetryModal() {
+        
     }
     
     func saveText(text: String) {
