@@ -4,12 +4,14 @@
 target 'Reporter' do
 
  pod 'PNChart'
+ pod 'PureLayout'
 
 end
 
 target 'ReporterTests' do
     
     pod 'PNChart'
+    pod 'PureLayout'
 
 end
 
