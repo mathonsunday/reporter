@@ -1,13 +1,22 @@
 PODS:
+  - Nimble (0.3.1)
   - PNChart (0.8):
     - UICountingLabel (~> 1.0.0)
+  - PureLayout (2.0.5)
+  - Quick (0.2.3)
   - UICountingLabel (1.0.0)
 
 DEPENDENCIES:
+  - Nimble (~> 0.3.0)
   - PNChart
+  - PureLayout
+  - Quick (~> 0.2.0)
 
 SPEC CHECKSUMS:
+  Nimble: 1b3c765852d63b9540a91e528e1e4f8afab79b6f
   PNChart: d62a59b248e890ea688252a03a276f9805244148
+  PureLayout: a0fe75f1cf485801e7e00b723b8a3c32dca558e2
+  Quick: 2c59914d3b2548a0e8ed0288062d965d9bab03e2
   UICountingLabel: 540feeca6bbb78be892c8ab75b6ad02313cb2b10
 
-COCOAPODS: 0.36.0.rc.1
+COCOAPODS: 0.36.3
