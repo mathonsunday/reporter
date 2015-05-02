@@ -12,7 +12,6 @@ import CoreData
 class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
     
     var question: Question?
-    var answers = [Answer]()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
@@ -66,7 +65,8 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
         let fetchRequest = NSFetchRequest(entityName: "Answer")
         let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
         fetchRequest.predicate = predicate
-        fetchRequest.sortDescriptors = []
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
     }
     
