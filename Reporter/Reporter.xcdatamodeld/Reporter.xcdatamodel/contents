@@ -5,7 +5,7 @@
         <attribute name="value" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="answerToQuestion" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="questionToAnswers" inverseEntity="Question" syncable="YES"/>
     </entity>
-    <entity name="Question" representedClassName="Reporter.Question" syncable="YES">
+    <entity name="Question" representedClassName="ReporterProject.Question" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="questionToAnswers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answer" inverseName="answerToQuestion" inverseEntity="Answer" syncable="YES"/>
     </entity>
