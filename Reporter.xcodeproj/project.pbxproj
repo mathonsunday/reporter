@@ -12,20 +12,13 @@
 		3B403DF21A9835B6007461BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF01A9835B6007461BF /* Main.storyboard */; };
 		3B403DF41A9835B6007461BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF31A9835B6007461BF /* Images.xcassets */; };
 		3B403DF71A9835B6007461BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF51A9835B6007461BF /* LaunchScreen.xib */; };
-		3B403E031A9835B6007461BF /* ReporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403E021A9835B6007461BF /* ReporterTests.swift */; };
-		3B403E391A998F6E007461BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DE91A9835B6007461BF /* AppDelegate.swift */; };
-		3B403E3A1A99905C007461BF /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */; };
+		3B514D731AED6F8500CC039F /* AddQuestionViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */; };
 		3B6376411AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */; };
-		3B6376421AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */; };
 		3B791EDF1AA2370700BB5938 /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */; };
 		3B791EE11AA2400400BB5938 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EE01AA2400400BB5938 /* AnswersViewController.swift */; };
-		3B7B16061AA298CF00B1B9EB /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */; };
-		3B7B16071AA298D200B1B9EB /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EE01AA2400400BB5938 /* AnswersViewController.swift */; };
 		3BA1FA571AAE2CD300BD818B /* Reporter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA551AAE2CD300BD818B /* Reporter.xcdatamodeld */; };
 		3BA1FA5C1AAE329900BD818B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5B1AAE329900BD818B /* Question.swift */; };
-		3BA1FA5D1AAE329900BD818B /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5B1AAE329900BD818B /* Question.swift */; };
 		3BA1FA5F1AAE329A00BD818B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5E1AAE329A00BD818B /* Answer.swift */; };
-		3BA1FA601AAE329A00BD818B /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA1FA5E1AAE329A00BD818B /* Answer.swift */; };
 		95E514DF7B0AB58D96CDDDB3 /* Pods_Reporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6A7409D02CBE52705FE432 /* Pods_Reporter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FC80B5E0483117B07F3F22C7 /* Pods_ReporterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A98EC4B4F73221B9EA450713 /* Pods_ReporterTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -41,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B403DE41A9835B6007461BF /* Reporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reporter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B403DE41A9835B6007461BF /* ReporterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReporterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403DE81A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B403DE91A9835B6007461BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +43,7 @@
 		3B403DF61A9835B6007461BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3B403DFC1A9835B6007461BF /* ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403E011A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B403E021A9835B6007461BF /* ReporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReporterTests.swift; sourceTree = "<group>"; };
+		3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionViewControllerSpec.swift; sourceTree = "<group>"; };
 		3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EE01AA2400400BB5938 /* AnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +92,7 @@
 		3B403DE51A9835B6007461BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3B403DE41A9835B6007461BF /* Reporter.app */,
+				3B403DE41A9835B6007461BF /* ReporterProject.app */,
 				3B403DFC1A9835B6007461BF /* ReporterTests.xctest */,
 			);
 			name = Products;
@@ -135,7 +128,7 @@
 		3B403DFF1A9835B6007461BF /* ReporterTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B403E021A9835B6007461BF /* ReporterTests.swift */,
+				3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */,
 				3B403E001A9835B6007461BF /* Supporting Files */,
 			);
 			path = ReporterTests;
@@ -172,9 +165,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3B403DE31A9835B6007461BF /* Reporter */ = {
+		3B403DE31A9835B6007461BF /* ReporterProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3B403E061A9835B6007461BF /* Build configuration list for PBXNativeTarget "Reporter" */;
+			buildConfigurationList = 3B403E061A9835B6007461BF /* Build configuration list for PBXNativeTarget "ReporterProject" */;
 			buildPhases = (
 				601747127BFBF03EAB4AC6B8 /* Check Pods Manifest.lock */,
 				3B403DE01A9835B6007461BF /* Sources */,
@@ -187,9 +180,9 @@
 			);
 			dependencies = (
 			);
-			name = Reporter;
+			name = ReporterProject;
 			productName = Reporter;
-			productReference = 3B403DE41A9835B6007461BF /* Reporter.app */;
+			productReference = 3B403DE41A9835B6007461BF /* ReporterProject.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3B403DFB1A9835B6007461BF /* ReporterTests */ = {
@@ -244,7 +237,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3B403DE31A9835B6007461BF /* Reporter */,
+				3B403DE31A9835B6007461BF /* ReporterProject */,
 				3B403DFB1A9835B6007461BF /* ReporterTests */,
 			);
 		};
@@ -383,14 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7B16061AA298CF00B1B9EB /* AnswerQuestionViewController.swift in Sources */,
-				3B6376421AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */,
-				3B403E3A1A99905C007461BF /* AddQuestionViewController.swift in Sources */,
-				3B403E391A998F6E007461BF /* AppDelegate.swift in Sources */,
-				3B403E031A9835B6007461BF /* ReporterTests.swift in Sources */,
-				3BA1FA5D1AAE329900BD818B /* Question.swift in Sources */,
-				3B7B16071AA298D200B1B9EB /* AnswersViewController.swift in Sources */,
-				3BA1FA601AAE329A00BD818B /* Answer.swift in Sources */,
+				3B514D731AED6F8500CC039F /* AddQuestionViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +385,7 @@
 /* Begin PBXTargetDependency section */
 		3B403DFE1A9835B6007461BF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3B403DE31A9835B6007461BF /* Reporter */;
+			target = 3B403DE31A9835B6007461BF /* ReporterProject */;
 			targetProxy = 3B403DFD1A9835B6007461BF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -443,6 +429,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -485,6 +472,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -531,6 +519,7 @@
 			baseConfigurationReference = F1BF97C787B81A0EAAACEF24 /* Pods-ReporterTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -542,6 +531,7 @@
 				INFOPLIST_FILE = ReporterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reporter.app/Reporter";
 			};
 			name = Debug;
@@ -551,6 +541,7 @@
 			baseConfigurationReference = 4CA8164E56D6355CE25787F7 /* Pods-ReporterTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -574,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3B403E061A9835B6007461BF /* Build configuration list for PBXNativeTarget "Reporter" */ = {
+		3B403E061A9835B6007461BF /* Build configuration list for PBXNativeTarget "ReporterProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3B403E071A9835B6007461BF /* Debug */,

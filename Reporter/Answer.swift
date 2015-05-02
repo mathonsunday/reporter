@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Answer: NSManagedObject {
+public class Answer: NSManagedObject {
 
     @NSManaged var timestamp: NSDate
     @NSManaged var value: NSNumber

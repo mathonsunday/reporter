@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
+public class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "questionCell"
@@ -17,7 +17,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     var questions = [Question]()
     
-    @IBAction func addQuestion(sender: AnyObject) {
+    @IBAction public func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "Add A New Question",
             message: nil,
             preferredStyle: .Alert)
@@ -60,14 +60,14 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
             completion: nil)
     }
     
-    func saveText(text: String) {
+    public func saveText(text: String) {
         let entityDescripition = NSEntityDescription.entityForName("Question", inManagedObjectContext: managedObjectContext!)
         let question = Question(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
         question.text = text
         managedObjectContext?.save(nil)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self,
             forCellReuseIdentifier: "cell")
@@ -77,23 +77,23 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         initializeQuestions()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     // MARK: UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let numberOfSections = fetchedResultController.sections?.count
         return numberOfSections!
     }
     
-    func tableView(tableView: UITableView,
+    public func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
             let numberOfRowsInSection = fetchedResultController.sections?[section].numberOfObjects
             return numberOfRowsInSection!
     }
     
-    func tableView(tableView: UITableView,
+    public func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
@@ -103,7 +103,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
             return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = sender as UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
         let answerQuestionController:AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
@@ -112,11 +112,10 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
     }
     
     // MARK: UITableViewDelegate
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    public func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+  public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let managedObject:NSManagedObject = fetchedResultController.objectAtIndexPath(indexPath) as NSManagedObject
         managedObjectContext?.deleteObject(managedObject)
         managedObjectContext?.save(nil)
@@ -146,7 +145,7 @@ class AddQuestionViewController: UIViewController, UITableViewDataSource,  NSFet
         }
     }
     
-    override func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
