@@ -15,7 +15,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
     let kCellIdentifier: String = "questionCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
-    var questions = [Question]()
+    var questions = [Question]?()
     
     @IBAction public func addQuestion(sender: AnyObject) {
         var alert = UIAlertController(title: "Add A New Question",
@@ -30,7 +30,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
        let saveAction = UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
                 let textField = alert.textFields![0] as UITextField
-                if (self.questions.filter { (question) in question.text == textField.text}.isEmpty) {
+                if (self.questions == nil ||  self.questions!.filter { (question) in question.text == textField.text}.isEmpty) {
                 self.saveText(textField.text)
                 self.tableView.reloadData()
                 } else {
@@ -141,7 +141,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
     
     func initializeQuestions() {
         for question in self.fetchedResultController.fetchedObjects! {
-            self.questions.append(question as Question)
+            self.questions?.append(question as Question)
         }
     }
     
