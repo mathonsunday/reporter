@@ -12,6 +12,7 @@ import CoreData
 class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetchedResultsControllerDelegate  {
     
     var question: Question?
+    var answers = [Answer]?()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
@@ -24,6 +25,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
         fetchedResultController = getFetchedResultController()
         fetchedResultController.delegate = self
         fetchedResultController.performFetch(nil)
+            initializeAnswers()
         
     }
     
@@ -68,6 +70,12 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
         let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
+    }
+    
+    func initializeAnswers() {
+        for answer in self.fetchedResultController.fetchedObjects! {
+            self.answers?.append(answer as Answer)
+        }
     }
     
     
