@@ -42,7 +42,6 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
     
     func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-            //            return questions.count
             let numberOfRowsInSection = fetchedResultController.sections?[section].numberOfObjects
             return numberOfRowsInSection!
     }
@@ -53,7 +52,12 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
             let answer = fetchedResultController.objectAtIndexPath(indexPath) as Answer
             let value  = answer.valueForKey("value") as NSNumber?
-            cell.textLabel!.text = value?.stringValue
+            let timestamp = answer.valueForKey("timestamp") as NSDate?
+            var formatter: NSDateFormatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let dateTime = formatter.stringFromDate(timestamp!) as NSString
+             cell.textLabel!.text = "Value " + value!.stringValue + " Time " + dateTime
             return cell
     }
     
