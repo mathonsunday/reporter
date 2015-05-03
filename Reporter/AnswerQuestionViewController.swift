@@ -15,7 +15,22 @@ class AnswerQuestionViewController: UIViewController {
     @IBOutlet weak var questionName: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBAction func addAnswer(sender: AnyObject) {
-        self.saveValue(currentValue)
+        let entityDescripition = NSEntityDescription.entityForName("Answer", inManagedObjectContext: managedObjectContext!)
+        let answer = Answer(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
+        answer.setValue(currentValue, forKey: "value")
+        answer.setValue(self.question, forKey: "answerToQuestion")
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        answer.setValue(date, forKey: "timestamp")
+        var error: NSError?
+        if !managedObjectContext!.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        saveButton.enabled = false
+        slider.enabled = false
     }
     var question: Question?
     var answers = [NSManagedObject]()
@@ -27,17 +42,12 @@ class AnswerQuestionViewController: UIViewController {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     
     func saveValue(value: NSNumber) {
-        let entityDescripition = NSEntityDescription.entityForName("Answer", inManagedObjectContext: managedObjectContext!)
-        let answer = Answer(entity: entityDescripition!, insertIntoManagedObjectContext: managedObjectContext)
-        answer.setValue(value, forKey: "value")
-        answer.setValue(self.question, forKey: "answerToQuestion")
         
-        var error: NSError?
-        if !managedObjectContext!.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
-        saveButton.enabled = false
-        slider.enabled = false
+
+    }
+    
+    func saveTimestamp(timestamp: NSDateComponents) {
+        
     }
     
     override func viewDidLoad() {
