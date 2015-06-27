@@ -1,5 +1,5 @@
 framework module PureLayout {
-  umbrella header "Pods-Reporter-PureLayout-umbrella.h"
+  umbrella header "Pods-ReporterProject-PureLayout-umbrella.h"
 
   export *
   module * { export * }

@@ -8,7 +8,7 @@ SWIFT_STDLIB_PATH="${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}"
 
 install_framework()
 {
-  local source="${BUILT_PRODUCTS_DIR}/Pods-Reporter/$1"
+  local source="${BUILT_PRODUCTS_DIR}/Pods-ReporterProject/$1"
   local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
@@ -17,8 +17,8 @@ install_framework()
   fi
 
   # use filter instead of exclude so missing patterns dont' throw errors
-  echo "rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" ${source} ${destination}"
-  rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" "${source}" "${destination}"
+  echo "rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" --filter "- Modules/" ${source} ${destination}"
+  rsync -av --filter "- CVS/" --filter "- .svn/" --filter "- .git/" --filter "- .hg/" --filter "- Headers/" --filter "- PrivateHeaders/" --filter "- Modules/" "${source}" "${destination}"
   # Resign the code if required by the build settings to avoid unstable apps
   if [ "${CODE_SIGNING_REQUIRED}" == "YES" ]; then
       code_sign "${destination}/$1"

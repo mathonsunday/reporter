@@ -1,5 +1,5 @@
 framework module PNChart {
-  umbrella header "Pods-Reporter-PNChart-umbrella.h"
+  umbrella header "Pods-ReporterProject-PNChart-umbrella.h"
 
   export *
   module * { export * }

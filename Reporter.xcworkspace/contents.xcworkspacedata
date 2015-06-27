@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ReporterTests/AddQuestionViewControllerSpec.swift">
+   </FileRef>
+   <FileRef
       location = "group:Reporter.xcodeproj">
    </FileRef>
    <FileRef

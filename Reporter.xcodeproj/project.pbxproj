@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		087221233331348C67E4D5AA /* Pods_ReporterProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 279AB73F0ACD9EC916500C63 /* Pods_ReporterProject.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3B403DEA1A9835B6007461BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DE91A9835B6007461BF /* AppDelegate.swift */; };
 		3B403DEF1A9835B6007461BF /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B403DEE1A9835B6007461BF /* AddQuestionViewController.swift */; };
 		3B403DF21A9835B6007461BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF01A9835B6007461BF /* Main.storyboard */; };
 		3B403DF41A9835B6007461BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF31A9835B6007461BF /* Images.xcassets */; };
 		3B403DF71A9835B6007461BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B403DF51A9835B6007461BF /* LaunchScreen.xib */; };
-		3B514D731AED6F8500CC039F /* AddQuestionViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */; };
 		3B6376411AAD281E00A9013F /* ChooseQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */; };
 		3B791EDF1AA2370700BB5938 /* AnswerQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */; };
 		3B791EE11AA2400400BB5938 /* AnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B791EE01AA2400400BB5938 /* AnswersViewController.swift */; };
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		279AB73F0ACD9EC916500C63 /* Pods_ReporterProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReporterProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403DE41A9835B6007461BF /* ReporterProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReporterProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403DE81A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B403DE91A9835B6007461BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		3B403DF61A9835B6007461BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3B403DFC1A9835B6007461BF /* ReporterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReporterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B403E011A9835B6007461BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionViewControllerSpec.swift; sourceTree = "<group>"; };
 		3B6376401AAD281E00A9013F /* ChooseQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EDE1AA2370700BB5938 /* AnswerQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerQuestionViewController.swift; sourceTree = "<group>"; };
 		3B791EE01AA2400400BB5938 /* AnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswersViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		3BA1FA5B1AAE329900BD818B /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3BA1FA5E1AAE329A00BD818B /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		4CA8164E56D6355CE25787F7 /* Pods-ReporterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReporterTests/Pods-ReporterTests.release.xcconfig"; sourceTree = "<group>"; };
+		617B49EA3CDA4212103CF16C /* Pods-ReporterProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReporterProject/Pods-ReporterProject.debug.xcconfig"; sourceTree = "<group>"; };
+		918F927C7001A72F887A7D59 /* Pods-ReporterProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReporterProject/Pods-ReporterProject.release.xcconfig"; sourceTree = "<group>"; };
 		A98EC4B4F73221B9EA450713 /* Pods_ReporterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReporterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8D0E0CE6EF2824B774B55D /* Pods-Reporter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reporter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reporter/Pods-Reporter.release.xcconfig"; sourceTree = "<group>"; };
 		F1BF97C787B81A0EAAACEF24 /* Pods-ReporterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReporterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReporterTests/Pods-ReporterTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E514DF7B0AB58D96CDDDB3 /* Pods_Reporter.framework in Frameworks */,
+				087221233331348C67E4D5AA /* Pods_ReporterProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +131,6 @@
 		3B403DFF1A9835B6007461BF /* ReporterTests */ = {
 			isa = PBXGroup;
 			children = (
-				3B514D721AED6F8500CC039F /* AddQuestionViewControllerSpec.swift */,
 				3B403E001A9835B6007461BF /* Supporting Files */,
 			);
 			path = ReporterTests;
@@ -147,6 +149,7 @@
 			children = (
 				FB6A7409D02CBE52705FE432 /* Pods_Reporter.framework */,
 				A98EC4B4F73221B9EA450713 /* Pods_ReporterTests.framework */,
+				279AB73F0ACD9EC916500C63 /* Pods_ReporterProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,6 +161,8 @@
 				EB8D0E0CE6EF2824B774B55D /* Pods-Reporter.release.xcconfig */,
 				F1BF97C787B81A0EAAACEF24 /* Pods-ReporterTests.debug.xcconfig */,
 				4CA8164E56D6355CE25787F7 /* Pods-ReporterTests.release.xcconfig */,
+				617B49EA3CDA4212103CF16C /* Pods-ReporterProject.debug.xcconfig */,
+				918F927C7001A72F887A7D59 /* Pods-ReporterProject.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				TargetAttributes = {
 					3B403DE31A9835B6007461BF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4CG72KX45A;
 					};
 					3B403DFB1A9835B6007461BF = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -276,7 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reporter/Pods-Reporter-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReporterProject/Pods-ReporterProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		601747127BFBF03EAB4AC6B8 /* Check Pods Manifest.lock */ = {
@@ -306,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reporter/Pods-Reporter-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReporterProject/Pods-ReporterProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C54737860B66622172FD19F7 /* Embed Pods Frameworks */ = {
@@ -376,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B514D731AED6F8500CC039F /* AddQuestionViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -482,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -491,26 +496,32 @@
 		};
 		3B403E071A9835B6007461BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC0DFD53C22A57899313EA6B /* Pods-Reporter.debug.xcconfig */;
+			baseConfigurationReference = 617B49EA3CDA4212103CF16C /* Pods-ReporterProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Reporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		3B403E081A9835B6007461BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB8D0E0CE6EF2824B774B55D /* Pods-Reporter.release.xcconfig */;
+			baseConfigurationReference = 918F927C7001A72F887A7D59 /* Pods-ReporterProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Reporter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

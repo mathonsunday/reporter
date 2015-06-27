@@ -3,7 +3,7 @@
 
  use_frameworks!
 
-target 'Reporter' do
+target 'ReporterProject' do
 
  pod 'PNChart'
  pod 'PureLayout'
@@ -14,8 +14,8 @@ target 'ReporterTests' do
     
     pod 'PNChart'
     pod 'PureLayout'
- pod 'Quick', '~> 0.2.0'
- pod 'Nimble', '~> 0.3.0'
+ pod 'Quick', '~> 0.3.0'
+ pod 'Nimble', '~> 0.4.0'
 
 end
 
