@@ -13,7 +13,7 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource,  NS
     
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "questionCell"
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func viewDidLoad() {
@@ -44,21 +44,21 @@ class ChooseQuestionViewController: UIViewController, UITableViewDataSource,  NS
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-            let question = fetchedResultController.objectAtIndexPath(indexPath) as Question
-            cell.textLabel!.text = question.valueForKey("text") as String?
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
+            let question = fetchedResultController.objectAtIndexPath(indexPath) as! Question
+            cell.textLabel!.text = question.valueForKey("text") as! String?
             return cell
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as UITableViewCell
+        let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
-        let answersController:AnswersViewController = segue.destinationViewController as AnswersViewController
-        let question:Question = fetchedResultController.objectAtIndexPath(indexPath!) as Question
+        let answersController:AnswersViewController = segue.destinationViewController as! AnswersViewController
+        let question:Question = fetchedResultController.objectAtIndexPath(indexPath!) as! Question
         answersController.question = question
         
     }

@@ -15,7 +15,7 @@ class Question: NSManagedObject {
     @NSManaged var questionToAnswers: NSSet
     
     class func createInManagedObjectContext(moc: NSManagedObjectContext, text: String) -> Question {
-        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Question", inManagedObjectContext: moc) as Question
+        let newItem = NSEntityDescription.insertNewObjectForEntityForName("Question", inManagedObjectContext: moc) as! Question
         newItem.text = text
         return newItem
     }

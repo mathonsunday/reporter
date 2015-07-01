@@ -15,7 +15,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
     var answers = [Answer]?()
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "answerCell"
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     
     override func viewDidLoad() {
@@ -49,15 +49,15 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
     func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-            let answer = fetchedResultController.objectAtIndexPath(indexPath) as Answer
-            let value  = answer.valueForKey("value") as NSNumber?
-            let timestamp = answer.valueForKey("timestamp") as NSDate?
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
+            let answer = fetchedResultController.objectAtIndexPath(indexPath) as! Answer
+            let value  = answer.valueForKey("value") as! NSNumber?
+            let timestamp = answer.valueForKey("timestamp") as! NSDate?
             var formatter: NSDateFormatter = NSDateFormatter()
             formatter.dateStyle = NSDateFormatterStyle.ShortStyle
             formatter.timeStyle = NSDateFormatterStyle.ShortStyle
             let dateTime = formatter.stringFromDate(timestamp!) as NSString
-             cell.textLabel!.text = "Value " + value!.stringValue + " Time " + dateTime
+             cell.textLabel!.text = "Value " + value!.stringValue + " Time " + (dateTime as String)
             return cell
     }
     
@@ -78,7 +78,7 @@ class AnswersViewController: UIViewController, UITableViewDataSource,  NSFetched
     
     func initializeAnswers() {
         for answer in self.fetchedResultController.fetchedObjects! {
-            self.answers?.append(answer as Answer)
+            self.answers?.append(answer as! Answer)
         }
     }
     

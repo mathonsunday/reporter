@@ -39,7 +39,7 @@ class AnswerQuestionViewController: UIViewController {
         currentValue = Int(sender.value)
         sliderValue.text = "\(currentValue)"
     }
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     func saveValue(value: NSNumber) {
         

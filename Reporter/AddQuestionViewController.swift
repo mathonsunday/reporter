@@ -13,7 +13,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
     
     @IBOutlet weak var tableView: UITableView!
     let kCellIdentifier: String = "questionCell"
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     var questions = [Question]()
     
@@ -29,7 +29,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
         
         let saveAction = UIAlertAction(title: "Save",
             style: .Default) { (action: UIAlertAction!) -> Void in
-                let textField = alert.textFields![0] as UITextField
+                let textField = alert.textFields![0] as! UITextField
                 if (self.questions.count == 0 || self.questions.filter { (question) in question.text == textField.text}.isEmpty) {
                     self.saveText(textField.text)
                     self.tableView.reloadData()
@@ -96,18 +96,18 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
     public func tableView(tableView: UITableView,
         cellForRowAtIndexPath
         indexPath: NSIndexPath) -> UITableViewCell {
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-            let question = fetchedResultController.objectAtIndexPath(indexPath) as Question
-            cell.textLabel!.text = question.valueForKey("text") as String?
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
+            let question = fetchedResultController.objectAtIndexPath(indexPath) as! Question
+            cell.textLabel!.text = question.valueForKey("text") as! String?
             
             return cell
     }
     
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as UITableViewCell
+        let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPathForCell(cell)
-        let answerQuestionController:AnswerQuestionViewController = segue.destinationViewController as AnswerQuestionViewController
-        let question:Question = fetchedResultController.objectAtIndexPath(indexPath!) as Question
+        let answerQuestionController:AnswerQuestionViewController = segue.destinationViewController as! AnswerQuestionViewController
+        let question:Question = fetchedResultController.objectAtIndexPath(indexPath!) as! Question
         answerQuestionController.question = question
     }
     
@@ -116,13 +116,13 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
         return true
     }
     public func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        let managedObject:NSManagedObject = fetchedResultController.objectAtIndexPath(indexPath) as NSManagedObject
+        let managedObject:NSManagedObject = fetchedResultController.objectAtIndexPath(indexPath) as! NSManagedObject
         managedObjectContext?.deleteObject(managedObject)
         managedObjectContext?.save(nil)
         
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController!) {
+    public func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
         initializeQuestions()
     }
@@ -143,7 +143,7 @@ public class AddQuestionViewController: UIViewController, UITableViewDataSource,
     func initializeQuestions() {
         questions.removeAll(keepCapacity: true)
         for question in self.fetchedResultController.fetchedObjects! {
-            self.questions.append(question as Question)
+            self.questions.append(question as! Question)
         }
     }
     
