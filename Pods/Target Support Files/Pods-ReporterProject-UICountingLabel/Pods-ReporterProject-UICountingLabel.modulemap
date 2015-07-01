@@ -1,6 +1,0 @@
-framework module UICountingLabel {
-  umbrella header "Pods-ReporterProject-UICountingLabel-umbrella.h"
-
-  export *
-  module * { export * }
-}
