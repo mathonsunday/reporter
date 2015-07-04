@@ -40,7 +40,7 @@ var months: [String]!
           dateTimes.append(dateTime as String)
 }
         
-        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
+        let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Answer")
         let chartData = LineChartData(xVals: dateTimes, dataSet: chartDataSet)
         lineChartView.data = chartData
     }
