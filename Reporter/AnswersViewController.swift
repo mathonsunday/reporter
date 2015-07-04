@@ -13,75 +13,46 @@ import Charts
 class AnswersViewController: UIViewController, NSFetchedResultsControllerDelegate  {
     
     var question: Question?
-    var answers = [Answer]?()
+    var answers = [Answer]()
     
 var months: [String]!
     @IBOutlet weak var lineChartView: LineChartView!
-//    let kCellIdentifier: String = "answerCell"
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     
-    func setChart(dataPoints: [String], values: [Double]) {
-        lineChartView.noDataText = "You need to provide data for the chart."
-     
+    func setChart() {
+    
+        lineChartView.noDataText = "You need to have at least one answer in order to see your data."
         var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+        var dateTimes: [String] = []
+           println("gets here")
+        for i in 0..<answers.count {
+            let answer = answers[i]
+            let value  = answer.valueForKey("value") as! Double
+            let dataEntry = ChartDataEntry(value: value, xIndex: i)
             dataEntries.append(dataEntry)
-        }
+            
+            let timestamp = answer.valueForKey("timestamp") as! NSDate?
+            var formatter: NSDateFormatter = NSDateFormatter()
+            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+            let dateTime = formatter.stringFromDate(timestamp!) as NSString
+          dateTimes.append(dateTime as String)
+}
         
         let chartDataSet = LineChartDataSet(yVals: dataEntries, label: "Units Sold")
-        let chartData = LineChartData(xVals: months, dataSet: chartDataSet)
+        let chartData = LineChartData(xVals: dateTimes, dataSet: chartDataSet)
         lineChartView.data = chartData
     }
-//    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
-        
-        setChart(months, values: unitsSold)
-//        self.tableView.registerClass(UITableViewCell.self,
-//            forCellReuseIdentifier: "cell")
         fetchedResultController = getFetchedResultController()
         fetchedResultController.delegate = self
         fetchedResultController.performFetch(nil)
             initializeAnswers()
-//
+              setChart()
     }
-//
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.tableView.reloadData()
-//    }
-    
-    // MARK: UITableViewDataSource
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        let numberOfSections = fetchedResultController.sections?.count
-//        return numberOfSections!
-//    }
-//    
-//    func tableView(tableView: UITableView,
-//        numberOfRowsInSection section: Int) -> Int {
-//            let numberOfRowsInSection = fetchedResultController.sections?[section].numberOfObjects
-//            return numberOfRowsInSection!
-//    }
-    
-//    func tableView(tableView: UITableView,
-//        cellForRowAtIndexPath
-//        indexPath: NSIndexPath) -> UITableViewCell {
-//            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
-//            let answer = fetchedResultController.objectAtIndexPath(indexPath) as! Answer
-//            let value  = answer.valueForKey("value") as! NSNumber?
-//            let timestamp = answer.valueForKey("timestamp") as! NSDate?
-//            var formatter: NSDateFormatter = NSDateFormatter()
-//            formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-//            formatter.timeStyle = NSDateFormatterStyle.ShortStyle
-//            let dateTime = formatter.stringFromDate(timestamp!) as NSString
-//             cell.textLabel!.text = "Value " + value!.stringValue + " Time " + (dateTime as String)
-//            return cell
-//    }
     
     // MARK: NSFetchedResultsControllerDelegate
     func getFetchedResultController() -> NSFetchedResultsController {
@@ -100,7 +71,7 @@ var months: [String]!
     
     func initializeAnswers() {
         for answer in self.fetchedResultController.fetchedObjects! {
-            self.answers?.append(answer as! Answer)
+            self.answers.append(answer as! Answer)
         }
     }
     
