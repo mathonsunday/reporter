@@ -21,11 +21,10 @@ var months: [String]!
     var fetchedResultController: NSFetchedResultsController = NSFetchedResultsController()
     
     func setChart() {
-    
         lineChartView.noDataText = "You need to have at least one answer in order to see your data."
+        
         var dataEntries: [ChartDataEntry] = []
         var dateTimes: [String] = []
-           println("gets here")
         for i in 0..<answers.count {
             let answer = answers[i]
             let value  = answer.valueForKey("value") as! Double
@@ -64,7 +63,7 @@ var months: [String]!
         let fetchRequest = NSFetchRequest(entityName: "Answer")
         let predicate = NSPredicate(format: "ANY answerToQuestion == %@", question!)
         fetchRequest.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return fetchRequest
     }
