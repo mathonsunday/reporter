@@ -1,5 +1,7 @@
 # reporter
 
+I made this app in order to learn iOS development. I was a fan of self tracking apps but didn't find one that allowed you to answer custom questions on a 1-10 scale. For me, I wanted this feature so I could track the severity of symptoms for a health issue I was dealing with at the time.
+
 FURTHER ENHANCEMENTS
 * [Local notifications to remind user to answer questions for the day](http://jamesonquave.com/blog/local-notifications-in-ios-8-with-swift-part-1/)
 * [Search on the choose question screen](http://www.raywenderlich.com/76519/add-table-view-search-swift)
